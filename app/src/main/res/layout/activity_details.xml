@@ -5,42 +5,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#efe7ef"
     tools:context=".DetailsActivity">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+    <LinearLayout
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/primary_color" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="State: "
+        android:textColor="#aaaaaa"
+        android:paddingLeft="12dp"
+        android:textSize="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/primary_color" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="State: "
+            android:textColor="#ffffff"
+            android:paddingLeft="12dp"
+            android:textSize="24dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/primary_color"
+            android:id="@+id/state_view_2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/primary_color">
+    <TextView
+        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City: "
+        android:textColor="#aaaaaa"
+        android:paddingLeft="12dp"
+        android:textSize="24dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/primary_color" />
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="City: "
+            android:textColor="#ffffff"
+            android:paddingLeft="12dp"
+            android:textSize="24dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@color/primary_color"
+            android:id="@+id/city_view"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/confirmed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="40dp"
-        android:layout_weight="1"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
         android:gravity="center_vertical"
         android:text="Confirmed: "
-        android:textColor="#2196F3"
+        android:background="#2196F3"
+        android:textColor="#ffffff"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/active"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="40dp"
-        android:layout_weight="1"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
         android:gravity="center_vertical"
         android:text="Active: "
-        android:textColor="#E89E30"
+        android:background="#E89E30"
+        android:textColor="#ffffff"
         android:textSize="30sp" />
 
     <TextView
         android:id="@+id/recovered"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="40dp"
-        android:layout_weight="1"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
         android:gravity="center_vertical"
         android:text="Recovered: "
-        android:textColor="#25EF2E"
+        android:background="#25EF2E"
+        android:textColor="#ffffff"
         android:textColorHighlight="#24D82B"
         android:textSize="30sp" />
 
@@ -48,13 +119,15 @@
         android:id="@+id/deceased"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="40dp"
-        android:layout_weight="1"
+        android:paddingLeft="60dp"
+        android:paddingRight="40dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
         android:text="Deceased: "
-        android:textColor="#EC4444"
+        android:background="#EC4444"
+        android:textColor="#ffffff"
         android:textSize="30sp" />
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

@@ -19,6 +19,8 @@ public class DetailsActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         int statePosition = b.getInt("statePosition");
         int districtPosition = b.getInt("districtPosition");
+        String state = b.getString("state");
+        String district = b.getString("district");
         String jsonResponse = b.getString("response");
 
         TextView confirmed = (TextView) findViewById(R.id.confirmed);
@@ -34,6 +36,12 @@ public class DetailsActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        TextView stateTextView = (TextView) findViewById(R.id.state_view_2);
+        TextView cityTextView = (TextView) findViewById(R.id.city_view);
+
+        stateTextView.setText(state);
+        cityTextView.setText(district);
 
         confirmed.setText("Confirmed: "+arr[0]);
         active.setText("Active: "+arr[1]);

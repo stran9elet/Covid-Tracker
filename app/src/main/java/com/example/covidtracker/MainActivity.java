@@ -2,7 +2,10 @@ package com.example.covidtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONException;
 
@@ -22,11 +27,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private LinearLayout emptyLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        emptyLayout = (LinearLayout) findViewById(R.id.empty_layout);
+        emptyLayout.setVisibility(View.INVISIBLE);
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         URL url = null;
         try {
@@ -35,8 +46,14 @@ public class MainActivity extends AppCompatActivity {
             Log.e(e.getMessage(),"enter a valid url");
         }
 
-        CovidTask covidTask = new CovidTask();
-        covidTask.execute(url);
+        if(networkInfo!=null && networkInfo.isConnected()) {
+            CovidTask covidTask = new CovidTask();
+            covidTask.execute(url);
+        }else{
+            TextView textView = (TextView) findViewById(R.id.state_selection);
+            textView.setVisibility(View.INVISIBLE);
+            emptyLayout.setVisibility(View.VISIBLE);
+        }
 
     }
 
@@ -67,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this,DistrictActivity.class);
                     Bundle extras = new Bundle();
                     extras.putInt("position",position);
+                    extras.putString("state",strings.get(position));
                     extras.putString("response",jsonResponse);
                     intent.putExtras(extras);
                     startActivity(intent);
