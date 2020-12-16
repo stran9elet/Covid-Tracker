@@ -4,130 +4,158 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#efe7ef"
+    android:orientation="vertical"
     tools:context=".DetailsActivity">
-    <androidx.core.widget.NestedScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-    <LinearLayout
-        android:layout_marginTop="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/primary_color" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="State: "
-        android:textColor="#aaaaaa"
-        android:paddingLeft="12dp"
-        android:textSize="24dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="@color/primary_color" />
-        <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="State: "
-            android:textColor="#ffffff"
-            android:paddingLeft="12dp"
-            android:textSize="24dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="@color/primary_color"
-            android:id="@+id/state_view_2"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/primary_color">
-    <TextView
-        android:layout_marginTop="2dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="City: "
-        android:textColor="#aaaaaa"
-        android:paddingLeft="12dp"
-        android:textSize="24dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="@color/primary_color" />
-        <TextView
             android:layout_marginTop="2dp"
+            android:background="@color/primary_color"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_color"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="State: "
+                android:textColor="#aaaaaa"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/state_view_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/primary_color"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="State: "
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="City: "
-            android:textColor="#ffffff"
-            android:paddingLeft="12dp"
-            android:textSize="24dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:background="@color/primary_color"
-            android:id="@+id/city_view"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:background="@color/primary_color"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="City: "
+                android:textColor="#aaaaaa"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/city_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:background="@color/primary_color"
+                android:paddingLeft="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="City: "
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/confirmed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2196F3"
+            android:gravity="center_vertical"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp"
+            android:text="Confirmed: "
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/active"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E89E30"
+            android:gravity="center_vertical"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp"
+            android:text="Active: "
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/recovered"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#25EF2E"
+            android:gravity="center_vertical"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp"
+            android:text="Recovered: "
+            android:textColor="#ffffff"
+            android:textColorHighlight="#24D82B"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/deceased"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EC4444"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:paddingLeft="60dp"
+            android:paddingRight="40dp"
+            android:text="Deceased: "
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="24dp"
+                    android:src="@drawable/light_bulb_ideas" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:paddingRight="32dp"
+                    android:paddingBottom="24dp"
+                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/confirmed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        android:gravity="center_vertical"
-        android:text="Confirmed: "
-        android:background="#2196F3"
-        android:textColor="#ffffff"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/active"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        android:gravity="center_vertical"
-        android:text="Active: "
-        android:background="#E89E30"
-        android:textColor="#ffffff"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/recovered"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        android:gravity="center_vertical"
-        android:text="Recovered: "
-        android:background="#25EF2E"
-        android:textColor="#ffffff"
-        android:textColorHighlight="#24D82B"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/deceased"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="60dp"
-        android:paddingRight="40dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center_vertical"
-        android:text="Deceased: "
-        android:background="#EC4444"
-        android:textColor="#ffffff"
-        android:textSize="30sp" />
-    </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

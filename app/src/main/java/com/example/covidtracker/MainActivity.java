@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -28,13 +29,16 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout emptyLayout;
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressBar = (ProgressBar) findViewById(R.id.progress);
 
         emptyLayout = (LinearLayout) findViewById(R.id.empty_layout);
         emptyLayout.setVisibility(View.INVISIBLE);
+
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             CovidTask covidTask = new CovidTask();
             covidTask.execute(url);
         }else{
+            progressBar.setVisibility(View.GONE);
             TextView textView = (TextView) findViewById(R.id.state_selection);
             textView.setVisibility(View.INVISIBLE);
             emptyLayout.setVisibility(View.VISIBLE);
@@ -75,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<String> strings) {
+            progressBar.setVisibility(View.GONE);
             ListView listView = (ListView) findViewById(R.id.list_1);
             CovidAdapter adapter = new CovidAdapter(MainActivity.this,strings);
             listView.setAdapter(adapter);
