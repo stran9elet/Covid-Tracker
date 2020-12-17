@@ -26,6 +26,8 @@ import java.net.URL;
 import java.nio.channels.AsynchronousChannelGroup;
 import java.util.ArrayList;
 
+import hotchemi.android.rate.AppRate;
+
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout emptyLayout;
@@ -39,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         emptyLayout = (LinearLayout) findViewById(R.id.empty_layout);
         emptyLayout.setVisibility(View.INVISIBLE);
 
+        AppRate.with(this)
+        .setInstallDays(0)
+        .setLaunchTimes(4)
+        .setRemindInterval(2)
+        .monitor();
+        AppRate.showRateDialogIfMeetsConditions(this);
+//        AppRate.with(this).showRateDialog(this);
 
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
